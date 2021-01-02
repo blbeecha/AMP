@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xnZEEidp1AAAXuFV9+d8IG9lOcHv4bgTLB6ldMo9SNmSXf+MPdXrPmQfjz2FZbKTHc9bF2s5z9DkPMwsI7Uckw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ivirb\\source\\repos\\AMP\\AMP\\AMP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ivirb\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AMP", "AMP\AMP.csproj", "{73959B99-9082-45BB-A2E4-8DE317605C94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AMLibrary", "AMLibrary\AMLibrary.csproj", "{8665B009-7FD1-4A08-B3F7-002A56380900}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73959B99-9082-45BB-A2E4-8DE317605C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73959B99-9082-45BB-A2E4-8DE317605C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73959B99-9082-45BB-A2E4-8DE317605C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73959B99-9082-45BB-A2E4-8DE317605C94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8665B009-7FD1-4A08-B3F7-002A56380900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8665B009-7FD1-4A08-B3F7-002A56380900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8665B009-7FD1-4A08-B3F7-002A56380900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8665B009-7FD1-4A08-B3F7-002A56380900}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35E4E7A1-4116-490B-92EC-305DB7E3DC53}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+C:\Users\ivirb\source\repos\AMP\AMLibrary\bin\Debug\netstandard2.0\AMLibrary.deps.json
+C:\Users\ivirb\source\repos\AMP\AMLibrary\bin\Debug\netstandard2.0\AMLibrary.dll
+C:\Users\ivirb\source\repos\AMP\AMLibrary\obj\Debug\netstandard2.0\AMLibrary.AssemblyInfoInputs.cache
+C:\Users\ivirb\source\repos\AMP\AMLibrary\obj\Debug\netstandard2.0\AMLibrary.AssemblyInfo.cs
+C:\Users\ivirb\source\repos\AMP\AMLibrary\bin\Debug\netstandard2.0\AMLibrary.pdb
+C:\Users\ivirb\source\repos\AMP\AMLibrary\obj\Debug\netstandard2.0\AMLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ivirb\source\repos\AMP\AMLibrary\obj\Debug\netstandard2.0\AMLibrary.dll
+C:\Users\ivirb\source\repos\AMP\AMLibrary\obj\Debug\netstandard2.0\AMLibrary.pdb
+C:\Users\ivirb\source\repos\AMP\AMLibrary\obj\Debug\netstandard2.0\AMLibrary.csprojAssemblyReference.cache

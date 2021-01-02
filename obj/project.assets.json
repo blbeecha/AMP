@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ivirb\\Documents\\DOTNET\\Accounts Management Portal\\Accounts Management Portal.csproj",
+      "projectUniqueName": "C:\\Users\\ivirb\\source\\repos\\AMP\\Accounts Management Portal.csproj",
       "projectName": "Accounts Management Portal",
-      "projectPath": "C:\\Users\\ivirb\\Documents\\DOTNET\\Accounts Management Portal\\Accounts Management Portal.csproj",
+      "projectPath": "C:\\Users\\ivirb\\source\\repos\\AMP\\Accounts Management Portal.csproj",
       "packagesPath": "C:\\Users\\ivirb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ivirb\\Documents\\DOTNET\\Accounts Management Portal\\obj\\",
+      "outputPath": "C:\\Users\\ivirb\\source\\repos\\AMP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\dotnet\\sdk\\NuGetFallbackFolder"

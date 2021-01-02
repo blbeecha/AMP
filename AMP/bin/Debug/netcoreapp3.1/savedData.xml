@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Account Name="newAcc">
+    <Organization>fakeOrg</Organization>
+    <Balance>6574</Balance>
+  </Account>
+  <Account Name="test">
+    <Organization>org</Organization>
+    <Balance>7</Balance>
+  </Account>
+</Root>

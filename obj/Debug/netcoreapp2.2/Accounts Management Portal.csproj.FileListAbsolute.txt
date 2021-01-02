@@ -9,3 +9,9 @@ C:\Users\ivirb\Documents\DOTNET\Accounts Management Portal\bin\Debug\netcoreapp2
 C:\Users\ivirb\Documents\DOTNET\Accounts Management Portal\bin\Debug\netcoreapp2.2\Accounts Management Portal.pdb
 C:\Users\ivirb\Documents\DOTNET\Accounts Management Portal\obj\Debug\netcoreapp2.2\Accounts Management Portal.dll
 C:\Users\ivirb\Documents\DOTNET\Accounts Management Portal\obj\Debug\netcoreapp2.2\Accounts Management Portal.pdb
+C:\Users\ivirb\source\repos\AMP\obj\Debug\netcoreapp2.2\Accounts Management Portal.csprojAssemblyReference.cache
+C:\Users\ivirb\source\repos\AMP\obj\Debug\netcoreapp2.2\Accounts Management Portal.csproj.CoreCompileInputs.cache
+C:\Users\ivirb\source\repos\AMP\obj\Debug\netcoreapp2.2\Accounts Management Portal.AssemblyInfoInputs.cache
+C:\Users\ivirb\source\repos\AMP\obj\Debug\netcoreapp2.2\Accounts Management Portal.AssemblyInfo.cs
+C:\Users\ivirb\source\repos\AMP\obj\Debug\netcoreapp2.2\Accounts Management Portal.dll
+C:\Users\ivirb\source\repos\AMP\obj\Debug\netcoreapp2.2\Accounts Management Portal.pdb
