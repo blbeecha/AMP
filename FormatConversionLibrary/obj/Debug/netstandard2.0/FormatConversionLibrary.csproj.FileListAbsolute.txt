@@ -1,0 +1,10 @@
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.csprojAssemblyReference.cache
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.csproj.ResolveComReference.cache
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.AssemblyInfoInputs.cache
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.AssemblyInfo.cs
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\bin\Debug\netstandard2.0\FormatConversionLibrary.deps.json
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\bin\Debug\netstandard2.0\FormatConversionLibrary.dll
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\bin\Debug\netstandard2.0\FormatConversionLibrary.pdb
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.dll
+C:\Users\ivirb\source\repos\AMP\FormatConversionLibrary\obj\Debug\netstandard2.0\FormatConversionLibrary.pdb

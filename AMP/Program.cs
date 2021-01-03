@@ -1,9 +1,25 @@
-﻿using System;
-using AMLibrary;
-using System.Data;
-using System.Runtime.InteropServices;
-using Microsoft.Office.Interop.Excel;
+﻿/*
+ * AUTHOR: Brendan Beecham
+ * FILE NAME: Program.cs
+ * SOLUTION: AMP (Accounts Management Portal)
+ * PROGRAM SCOPE: .NET 5.0 Command-line Application
+ * PROGRAM PURPOSE:
+ *      The purpose of this program is to allow for easy organization of monetary accounts.
+ *      The basic functionality of the program is comparable to a typical bank account with greater
+ *      flexibility for setting organization names and current budgets. At the exit of the program,
+ *      an updated 'savedData.xml' will be created in the project directory to store account data
+ *      between app sessions. The standout functionality of the project is the ability to export
+ *      accounts data and the corresponding information to a Microsoft Office Excel 2016 workbook.
+ *      For additional usage information on how to use the app and it's extended functionality,
+ *      use the '--help' command.
+ */
 
+//From system libraries
+using System;
+
+//From Custom Libraries
+using AMLibrary;
+using FormatConversionLibrary;
 
 namespace AMP
 {
@@ -168,9 +184,12 @@ namespace AMP
                     Console.WriteLine("\tdecrement -accountName -decBy");
                     Console.WriteLine("\tincrement -accountName -incBy");
                     Console.WriteLine("\tbalanceSum");
-                    Console.WriteLine("\texportToExcel -ExcelFileName");
+                    Console.WriteLine("\texportToExcel -ExcelFileName ");
+                    Console.WriteLine("\texportToExcel --Path -PathWithExcelFileName");
+                    Console.Write("\t\t\t");
+                    Console.Write(@"example usage: exportToExcel --Path C:\Users\bob\Documents\doc");
 
-                    Console.WriteLine("To terminate the program, use the 'exit' command");
+                    Console.WriteLine("\n\nTo terminate the program, use the 'exit' command");
                     Console.WriteLine("Following the termination of the program,");
 		            Console.WriteLine("   an XML file with updated account information will be found in the current directory");
                     Console.WriteLine("--------------------------------------------------------------------------------------");
@@ -179,62 +198,65 @@ namespace AMP
                 else if (commandArgs[0] == "exportToExcel")
                 {
 
-                    try { 
-                        DataSet ds = new DataSet();
+                    FormatExcel export = new FormatExcel();
+                    
+                    try {
+
+                        string[] temp;
+                        string Xlfile;
+                        
+                        //determine whether --Path flag was used, else use current directory
+                        if (commandArgs[1].Contains("--Path"))
+                        {
+                            temp = commandArgs[1].Split(" ", 2);
+                            Xlfile = temp[1] + ".xslx";
+                            Console.WriteLine("Excel Document is being created at path: '" + Xlfile + "'");
+                        }
+                        else
+                        {
+                            Xlfile = commandArgs[1] + ".xlsx";
+                            Console.WriteLine("Excel Document has been created in the User's Document directory. Please specify --Path for another destination.");
+                        }
+
+                        //update XML savedData to save recent changes
+                        operations.constructXML(accounts, organizations, balances);
 
                         //Convert the XML into Dataset
-                        ds.ReadXml(@"savedData.xml");
-
-                        //Retrieve the table fron Dataset
-                        System.Data.DataTable dt = ds.Tables[0];
+                        System.Data.DataTable dt = export.convertXmlToEl();
 
                         // Create an Excel object
-                        /*Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-                        
-                        //Create workbook object
-                        string str = "test.xlsx";
-                        Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Open(Filename: str);
+                        Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+
+                        //Create a workbook or open existing workbook if filename matches
+                        string fileName = commandArgs[1];
+                        Microsoft.Office.Interop.Excel.Workbook workbook = export.CreateWorkbook(fileName, excel);
 
                         //Create worksheet object
-                        Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet) workbook.ActiveSheet;
+                        Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.ActiveSheet;
 
-                        // Column Headings
-                        int iColumn = 0;
-
-                        foreach (DataColumn c in dt.Columns)
-                        {
-                            iColumn++;
-                            excel.Cells[1, iColumn] = c.ColumnName;
-                        }
-
-                        // Row Data
-                        int iRow = worksheet.UsedRange.Rows.Count - 1;
-
-                        foreach (DataRow dr in dt.Rows)
-                        {
-                            iRow++;
-
-                            // Row's Cell Data
-                            iColumn = 0;
-                            foreach (DataColumn c in dt.Columns)
-                            {
-                                iColumn++;
-                                excel.Cells[iRow + 1, iColumn] = dr[c.ColumnName];
-                            }
-                        }
-
-                        ((Microsoft.Office.Interop.Excel._Worksheet)worksheet).Activate();
+                        //populate workbook with saved DataTable data   
+                        workbook = export.PopulateWorkbook(workbook, worksheet, excel, dt);
 
                         //Save the workbook
-                        workbook.Save();
+                        try
+                        {
+                            workbook.SaveAs(Xlfile);
+                        } catch(System.Runtime.InteropServices.COMException)
+                        {
+                            Console.WriteLine("The filepath input to export to was invalid. Please make sure to include the filename at the end.");
+                            Console.WriteLine("Please try again or save via the window.\n");
+                            continue;
+                        }
 
                         //Close the Workbook
-                        workbook.Close();
+                        workbook.Close(true);
 
                         // Finally Quit the Application
-                        ((Microsoft.Office.Interop.Excel._Application)excel).Quit();
-                        string Xlfile = commandArgs[1] + ".xlsx";
-                        */
+                        ((Microsoft.Office.Interop.Excel.Application)excel).Quit();
+
+                        Console.WriteLine("Excel Document has been exported!\n");
+                        continue;
+                        
                     }
                     catch (System.IndexOutOfRangeException)
                     {
@@ -269,22 +291,6 @@ namespace AMP
 
         }
 
-        static System.Data.DataTable convertXmlToEl()
-        {
-            string XmlFile = "savedData.xml";
-            System.Data.DataTable Dt = new System.Data.DataTable();
-            try
-            {
-                DataSet ds = new DataSet();
-                ds.ReadXml(XmlFile);
-                Dt.Load(ds.CreateDataReader());
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return Dt;
-        }
+       
     }
 }

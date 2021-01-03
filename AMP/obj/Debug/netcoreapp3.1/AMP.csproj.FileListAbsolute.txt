@@ -14,5 +14,7 @@ C:\Users\ivirb\source\repos\AMP\AMP\obj\Debug\netcoreapp3.1\AMP.csproj.CopyCompl
 C:\Users\ivirb\source\repos\AMP\AMP\obj\Debug\netcoreapp3.1\AMP.dll
 C:\Users\ivirb\source\repos\AMP\AMP\obj\Debug\netcoreapp3.1\AMP.pdb
 C:\Users\ivirb\source\repos\AMP\AMP\obj\Debug\netcoreapp3.1\AMP.genruntimeconfig.cache
-C:\Users\ivirb\source\repos\AMP\AMP\bin\Debug\netcoreapp3.1\Microsoft.Office.Interop.Excel.dll
+C:\Users\ivirb\source\repos\AMP\AMP\obj\Debug\netcoreapp3.1\AMP.csproj.ResolveComReference.cache
 C:\Users\ivirb\source\repos\AMP\AMP\obj\Debug\netcoreapp3.1\AMP.csproj.CoreCompileInputs.cache
+C:\Users\ivirb\source\repos\AMP\AMP\bin\Debug\netcoreapp3.1\FormatConversionLibrary.dll
+C:\Users\ivirb\source\repos\AMP\AMP\bin\Debug\netcoreapp3.1\FormatConversionLibrary.pdb

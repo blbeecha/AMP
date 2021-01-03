@@ -1,22 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cxnQWO9+Aew3chQAVN3CLs2IHkJpSI3EIzS68wVkXj2FbKeh+ZGbE2GH4I4TwUPDv64aFQ2xVU36aHCF8tbIEA==",
+  "dgSpecHash": "NkVH+Fim1hJvTE8+YmDeHD0mK0qDipEF8KowCTIg74jxYhsFmiLjkf1eRMTcEkt2mK3o27Aj/8Zbq7EDZc9/DA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ivirb\\source\\repos\\AMP\\AMP\\AMP.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ivirb\\.nuget\\packages\\microsoft.office.interop.excel\\15.0.4795.1000\\microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512",
     "C:\\Users\\ivirb\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Office.Interop.Excel",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

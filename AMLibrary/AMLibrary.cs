@@ -1,4 +1,19 @@
-﻿using System;
+﻿/*
+ * AUTHOR: Brendan Beecham
+ * FILE NAME: AMLibrary.cs
+ * SOLUTION: AMP(Accounts Management Portal)
+ * PROGRAM SCOPE: .NET 5.0 Library
+ * PROGRAM PURPOSE:
+ *      The purpose of this library is to assist with operation commands on the account information.
+ *      The scope of the operations is contained (as best as possible) within this library to better
+ *      abstract the solution. Additionally, the library maintains a JSON log within the project directory
+ *      to detail each session of the application. The JSON log is overwritten upon each usage so only the
+ *      most recent session is recorded.
+ * CALLED BY:
+ *      Program.cs
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
@@ -14,6 +29,7 @@ namespace AMLibrary
 
         public AMOperations()
         {
+            //constructor
             StreamWriter logFile = File.CreateText("AMOperationslog.json");
             logFile.AutoFlush = true;
             writer = new JsonTextWriter(logFile);
@@ -179,18 +195,7 @@ namespace AMLibrary
 
             accXMLTree.Save(purchaseOrderFilepath);
             String str = File.ReadAllText(purchaseOrderFilepath);
-            Console.WriteLine(str);
-        }
-
-        public void startWriterObject()
-        {
-        }
-
-        public void logAccount(string operation, string account)
-        {
-            writer.WriteValue(operation);
-            writer.WritePropertyName("Account");
-            writer.WriteValue(account);
+            //Console.WriteLine(str);
         }
 
         public string[] incBal(int index, string incBy, string[] balances, string account)
