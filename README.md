@@ -1,5 +1,5 @@
 # AMP
-Accounts Management Portal. A Desktop and/or command-line application that allows easy input, sorting, and updating, for any monetary accounts that one client may have. Therefore, reducing time spent on updating excel spreadsheets.
+Accounts Management Portal. A command-line application that allows easy input, sorting, and updating, for any monetary accounts that one client may have. Therefore, reducing time spent on updating excel spreadsheets.
 
 ## Installation
 
