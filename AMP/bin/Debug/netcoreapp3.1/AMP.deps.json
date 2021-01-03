@@ -9,10 +9,18 @@
       "AMP/1.0.0": {
         "dependencies": {
           "AMLibrary": "1.0.0",
-          "Interop.Microsoft.Office.Interop.Excel": "1.9.0.0"
+          "Microsoft.Office.Interop.Excel": "15.0.4795.1000"
         },
         "runtime": {
           "AMP.dll": {}
+        }
+      },
+      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Excel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4795.1000"
+          }
         }
       },
       "Newtonsoft.Json/12.0.3": {
@@ -30,14 +38,6 @@
         "runtime": {
           "AMLibrary.dll": {}
         }
-      },
-      "Interop.Microsoft.Office.Interop.Excel/1.9.0.0": {
-        "runtime": {
-          "Interop.Microsoft.Office.Interop.Excel.dll": {
-            "assemblyVersion": "1.9.0.0",
-            "fileVersion": "1.9.0.0"
-          }
-        }
       }
     }
   },
@@ -46,6 +46,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
+      "path": "microsoft.office.interop.excel/15.0.4795.1000",
+      "hashPath": "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.3": {
       "type": "package",
@@ -56,11 +63,6 @@
     },
     "AMLibrary/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Interop.Microsoft.Office.Interop.Excel/1.9.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

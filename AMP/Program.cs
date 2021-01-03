@@ -35,26 +35,38 @@ namespace AMP
 
                 if (commandArgs[0] == "increment")
                 {
-                    if (commandArgs[1] == "" || commandArgs[2] == "") { operations.argError(); }
                     //schema: "incBy --accountName --incBy"
                     //increment account by value given
-                    string[] temp = commandArgs[1].Split(" ", 3);
-                    if (temp[0] == null || temp[1] == null) { operations.argError(); }
-                    int index = operations.getIndex(temp[0], accounts);
-                    balances = operations.incBal(index, temp[1], balances, temp[0]);
-                    operations.listAcc(accounts, organizations, balances);
-                    continue;
+                    try { 
+                        string[] temp = commandArgs[1].Split(" ", 3);
+                        if (temp[0] == null || temp[1] == null) { operations.argError(); }
+                        int index = operations.getIndex(temp[0], accounts);
+                        balances = operations.incBal(index, temp[1], balances, temp[0]);
+                        operations.listAcc(accounts, organizations, balances);
+                        continue;
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    }
                 }
                 else if (commandArgs[0] == "decrement")
                 {
                     //schema: "decBal --accountName --decBy"
                     //decrement account by value given
-                    string[] temp = commandArgs[1].Split(" ", 2);
-                    if (temp[0] == null || temp[1] == null) { operations.argError(); }
-                    int index = operations.getIndex(temp[0], accounts);
-                    balances = operations.decBal(index, temp[1], balances, temp[0]);
-                    operations.listAcc(accounts, organizations, balances);
-                    continue;
+                    try { 
+                        string[] temp = commandArgs[1].Split(" ", 2);
+                        int index = operations.getIndex(temp[0], accounts);
+                        balances = operations.decBal(index, temp[1], balances, temp[0]);
+                        operations.listAcc(accounts, organizations, balances);
+                        continue;
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    }
                 }
                 else if (commandArgs[0] == "listAccounts")
                 {
@@ -65,55 +77,78 @@ namespace AMP
                 }
                 else if (commandArgs[0] == "removeAccount")
                 {
-                    if (commandArgs[1] == null) { operations.argError(); }
                     //schema: "removeAccount --accountName"
                     //remove account from xml
-                    int index = operations.getIndex(commandArgs[1], accounts);
-                    accounts = operations.remAcc(index, accounts, commandArgs[1]);
-                    organizations = operations.remOrg(index, organizations);
-                    balances = operations.remBal(index, balances);
-                    operations.listAcc(accounts, organizations, balances);
-                    continue;
+                    try { 
+                        int index = operations.getIndex(commandArgs[1], accounts);
+                        accounts = operations.remAcc(index, accounts, commandArgs[1]);
+                        organizations = operations.remOrg(index, organizations);
+                        balances = operations.remBal(index, balances);
+                        operations.listAcc(accounts, organizations, balances);
+                        continue;
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    }
                 }
                 else if (commandArgs[0] == "addAccount")
                 {
                     //schema: "addAccount --accountName --organization --newBalance"
                     //add account to xml
-                    string[] temp = commandArgs[1].Split(" ", 3);
-                    if (temp[0] == null || temp[1] == null || temp[2] == null) { operations.argError(); }
-                    if (!operations.duplicateAccount(temp[0], accounts))
+                    try
                     {
-                        operations.logNewAccount(temp[0], temp[1], temp[2]);
-                        accounts = operations.addAcc(temp[0], accounts);
-                        organizations = operations.addOrg(temp[1], organizations);
-                        balances = operations.addBal(temp[2], balances);
-                        operations.listAcc(accounts, organizations, balances);
-                    }
-                    continue;
+                        string[] temp = commandArgs[1].Split(" ", 3);
+                        if (!operations.duplicateAccount(temp[0], accounts))
+                        {
+                            operations.logNewAccount(temp[0], temp[1], temp[2]);
+                            accounts = operations.addAcc(temp[0], accounts);
+                            organizations = operations.addOrg(temp[1], organizations);
+                            balances = operations.addBal(temp[2], balances);
+                            operations.listAcc(accounts, organizations, balances);
+                        }
+                        continue;
+                    } catch( System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    } 
                 }
                 else if (commandArgs[0] == "setBalance")
                 {
                     //schema: "setBalance --accountName --newBalance"
                     //set balance of account to value given
-                    string[] temp = commandArgs[1].Split(" ", 2);
-                    if (temp[0] == null || temp[1] == null) { operations.argError(); }
-                    int index = operations.getIndex(temp[0], accounts);
-                    string newBalance = temp[1];
-                    balances = operations.setBal(newBalance, index, balances, temp[0]);
-                    operations.listAcc(accounts, organizations, balances);
-                    continue;
+                    try { 
+                        string[] temp = commandArgs[1].Split(" ", 2);
+                        int index = operations.getIndex(temp[0], accounts);
+                        string newBalance = temp[1];
+                        balances = operations.setBal(newBalance, index, balances, temp[0]);
+                        operations.listAcc(accounts, organizations, balances);
+                        continue;
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    }
                 }
                 else if (commandArgs[0] == "setOrg")
                 {
                     //schema: "setOrg --accountName --newOrg"
                     //replace organization association for account with given string
-                    string[] temp = commandArgs[1].Split(" ", 2);
-                    if (temp[0] == null || temp[1] == null) { operations.argError(); }
-                    int index = operations.getIndex(temp[0], accounts);
-                    string newOrg = temp[1];
-                    organizations = operations.setOrg(newOrg, index, organizations, temp[0]);
-                    operations.listAcc(accounts, organizations, balances);
-
+                    try { 
+                        string[] temp = commandArgs[1].Split(" ", 2);
+                        int index = operations.getIndex(temp[0], accounts);
+                        string newOrg = temp[1];
+                        organizations = operations.setOrg(newOrg, index, organizations, temp[0]);
+                        operations.listAcc(accounts, organizations, balances);
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    }
                 }
                 else if (commandArgs[0] == "balanceSum")
                 {
@@ -137,18 +172,75 @@ namespace AMP
 
                     Console.WriteLine("To terminate the program, use the 'exit' command");
                     Console.WriteLine("Following the termination of the program,");
-		    Console.WriteLine("   an XML file with updated account information will be found in the current directory");
+		            Console.WriteLine("   an XML file with updated account information will be found in the current directory");
                     Console.WriteLine("--------------------------------------------------------------------------------------");
 
                 }
                 else if (commandArgs[0] == "exportToExcel")
                 {
-                    /*if( commandArgs[1] == null) { operations.argError(); }
-                    string Xlfile = commandArgs[1] + ".xlsx";
-                    System.Data.DataTable table = convertXmlToEl();
-                    Console.Write(table);
-                    
-                    //ExportDataTableToExcel(table, Xlfile);*/
+
+                    try { 
+                        DataSet ds = new DataSet();
+
+                        //Convert the XML into Dataset
+                        ds.ReadXml(@"savedData.xml");
+
+                        //Retrieve the table fron Dataset
+                        System.Data.DataTable dt = ds.Tables[0];
+
+                        // Create an Excel object
+                        /*Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                        
+                        //Create workbook object
+                        string str = "test.xlsx";
+                        Microsoft.Office.Interop.Excel.Workbook workbook = excel.Workbooks.Open(Filename: str);
+
+                        //Create worksheet object
+                        Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet) workbook.ActiveSheet;
+
+                        // Column Headings
+                        int iColumn = 0;
+
+                        foreach (DataColumn c in dt.Columns)
+                        {
+                            iColumn++;
+                            excel.Cells[1, iColumn] = c.ColumnName;
+                        }
+
+                        // Row Data
+                        int iRow = worksheet.UsedRange.Rows.Count - 1;
+
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            iRow++;
+
+                            // Row's Cell Data
+                            iColumn = 0;
+                            foreach (DataColumn c in dt.Columns)
+                            {
+                                iColumn++;
+                                excel.Cells[iRow + 1, iColumn] = dr[c.ColumnName];
+                            }
+                        }
+
+                        ((Microsoft.Office.Interop.Excel._Worksheet)worksheet).Activate();
+
+                        //Save the workbook
+                        workbook.Save();
+
+                        //Close the Workbook
+                        workbook.Close();
+
+                        // Finally Quit the Application
+                        ((Microsoft.Office.Interop.Excel._Application)excel).Quit();
+                        string Xlfile = commandArgs[1] + ".xlsx";
+                        */
+                    }
+                    catch (System.IndexOutOfRangeException)
+                    {
+                        operations.argError();
+                        continue;
+                    }
                 }
                 else
                 {
@@ -193,58 +285,6 @@ namespace AMP
                 throw ex;
             }
             return Dt;
-        }
-
-        static void ExportDataTableToExcel(System.Data.DataTable table, string Xlfile)
-        {
-            //progressBar1.Value = 0;
-            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-            Workbook book = excel.Application.Workbooks.Add(Type.Missing);
-            excel.Visible = false;
-            excel.DisplayAlerts = false;
-            Worksheet excelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)book.ActiveSheet;
-            excelWorkSheet.Name = table.TableName;
-
-            //progressBar1.Maximum = table.Columns.Count;
-            for (int i = 1; i < table.Columns.Count + 1; i++) // Creating Header Column In Excel  
-            {
-                excelWorkSheet.Cells[1, i] = table.Columns[i - 1].ColumnName;
-                /*if (progressBar1.Value < progressBar1.Maximum)
-                {
-                    progressBar1.Value++;
-                    int percent = (int)(((double)progressBar1.Value / (double)progressBar1.Maximum) * 100);
-                    progressBar1.CreateGraphics().DrawString(percent.ToString() + "%", new System.Drawing.Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBar1.Width / 2 - 10, progressBar1.Height / 2 - 7));
-                    System.Windows.Forms.Application.DoEvents();
-                }*/
-            }
-
-
-            //progressBar1.Maximum = table.Rows.Count;
-            for (int j = 0; j < table.Rows.Count; j++) // Exporting Rows in Excel  
-            {
-                for (int k = 0; k < table.Columns.Count; k++)
-                {
-                    excelWorkSheet.Cells[j + 2, k + 1] = table.Rows[j].ItemArray[k].ToString();
-                }
-
-                /*if (progressBar1.Value < progressBar1.Maximum)
-                {
-                    progressBar1.Value++;
-                    int percent = (int)(((double)progressBar1.Value / (double)progressBar1.Maximum) * 100);
-                    progressBar1.CreateGraphics().DrawString(percent.ToString() + "%", new System.Drawing.Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBar1.Width / 2 - 10, progressBar1.Height / 2 - 7));
-                    System.Windows.Forms.Application.DoEvents();
-                }*/
-            }
-
-
-            book.SaveAs(Xlfile);
-            book.Close(true);
-            excel.Quit();
-
-            Marshal.ReleaseComObject(book);
-            Marshal.ReleaseComObject(book);
-            Marshal.ReleaseComObject(excel);
-
         }
     }
 }
