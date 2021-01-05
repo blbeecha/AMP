@@ -5,7 +5,8 @@ Target Framework: netcoreapp3.1
 
 ## Installation
 
-TBD
+Full Distribution: TBD
+In-development: download or pull codebase. The software can be run by initiating AMP.exe under "AMP/AMP/bin/Debug/netcoreapp3.1" 
 
 ## Required Third-Party Software Installations
 
